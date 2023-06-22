@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const FoodDetail = () => {
@@ -28,6 +28,12 @@ const FoodDetail = () => {
   };
 
   return (
+    <section>
+      <Link
+        to=".."
+        relative="path"
+        className="back-button"
+    >&larr; <span>Back to all foods</span></Link>
     <div className="food-detail-container">
       {loading ? (
         <h2>Loading....</h2>
@@ -44,6 +50,7 @@ const FoodDetail = () => {
         <h2>Food not found.</h2>
       )}
     </div>
+        </section>
   );
 };
 
