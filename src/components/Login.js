@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     axios
-      .post('http://localhost:8000/api/users/login', userData)
+      .post('https://kitchen-recipe.onrender.com/api/users/login', userData)
       .then((response) => {
         console.log(response.data);
         localStorage.setItem('token', response.data.token);

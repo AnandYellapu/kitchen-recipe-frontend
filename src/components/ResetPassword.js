@@ -21,7 +21,7 @@ const ResetPassword = () => {
 
   const handleResetPassword = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/api/users/reset-password/:token', {
+      const response = await axios.post('https://kitchen-recipe.onrender.com/api/users/reset-password/:token', {
         token,
         password,
       });

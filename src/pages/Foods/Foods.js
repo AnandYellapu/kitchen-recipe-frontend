@@ -11,7 +11,7 @@ const Foods = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/food')
+    axios.get('https://kitchen-recipe.onrender.com/api/food')
       .then((response) => {
         const data = response.data;
         console.log(data); // Log the entire response data

@@ -16,7 +16,7 @@ const HostFoodDetail = () => {
   useEffect(() => {
     const fetchFood = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/food/${params.id}`);
+        const response = await axios.get(`https://kitchen-recipe.onrender.com/api/food/${params.id}`);
         console.log("API response:", response.data);
         setFood(response.data.data);
       } catch (error) {
@@ -30,7 +30,7 @@ const HostFoodDetail = () => {
 
   const handleDeleteFood = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/food/${params.id}`);
+      await axios.delete(`https://kitchen-recipe.onrender.com/api/food/${params.id}`);
       navigate('/foods');
       toast.success('Food remove Successfully!');
     } catch (error) {

@@ -17,7 +17,7 @@ const Register = () => {
     };
 
     axios
-      .post('http://localhost:8000/api/users/register', userData)
+      .post('https://kitchen-recipe.onrender.com/api/users/register', userData)
       .then((response) => {
         console.log(response.data);
         navigate('/login');
