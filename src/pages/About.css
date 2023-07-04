@@ -1,0 +1,80 @@
+.about-page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tag {
+    font-size: 24px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.tag {
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.tag1 {
+    margin-bottom: 16px;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.icon1 {
+    font-size: 280px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    gap: 1rem;
+    border-radius: 50%;
+    padding: 1px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.icon1:hover {
+    transform: scale(1.2);
+}
+
+.contact-link1,
+.social-link1 {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-link1:hover,
+.social-link1:hover {
+    color: #ff7f50;
+}
+
+.social-link1:not(:last-child) {
+    margin-right: 20px;
+}
+
+.contact-text1 {
+    font-weight: bold;
+}
+
+.icon-animation1 {
+    animation: iconRotate 2s infinite linear;
+}

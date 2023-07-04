@@ -4,6 +4,7 @@ import { createFood } from '../api/foodApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function CreateFoodForm() {
   const [foodData, setFoodData] = useState({
     name: '',
@@ -111,7 +112,7 @@ function CreateFoodForm() {
             <textarea
               id="ingredients"
               name="ingredients"
-              value={JSON.stringify(foodData.ingredients)}
+              value={JSON.stringify(foodData.ingredients, null, 2)}
               onChange={handleInputChange}
             />
           </div>
@@ -124,17 +125,6 @@ function CreateFoodForm() {
 }
 
 export default CreateFoodForm;
-
-
-
-
-
-
-
-
-
-
-
 
 
 

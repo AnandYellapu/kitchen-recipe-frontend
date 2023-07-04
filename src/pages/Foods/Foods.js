@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
+import '../../index.css';
 
 const Foods = () => {
   const [foods, setFoods] = useState([]);
