@@ -1,9 +1,8 @@
 // import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-// import { createFood } from '../api/foodApi';
 // import { toast, ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-
+// import axios from 'axios';
 
 // function CreateFoodForm() {
 //   const [foodData, setFoodData] = useState({
@@ -19,7 +18,6 @@
 //   const handleInputChange = (e) => {
 //     const { name, value } = e.target;
 //     if (name === 'foodProcess') {
-//       // Handle food process steps as an array
 //       const foodProcessSteps = value.split('\n');
 //       setFoodData((prevData) => ({
 //         ...prevData,
@@ -43,6 +41,15 @@
 //     }
 //   };
 
+//   const createFood = async (foodData) => {
+//     try {
+//       await axios.post('https://kitchen-recipe.onrender.com/api/food', foodData);
+//     } catch (error) {
+//       console.error('Error creating food:', error);
+//       throw new Error('Failed to create food');
+//     }
+//   };
+
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
@@ -57,9 +64,9 @@
 //   return (
 //     <div className="create-food-container">
 //       <div className="create-food-form">
-//         <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Create Food</h2>
+//         <h2 className="form-heading">Create Food</h2>
 //         <form onSubmit={handleSubmit}>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="name">Name:</label>
 //             <input
 //               type="text"
@@ -69,7 +76,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="type">Type:</label>
 //             <input
 //               type="text"
@@ -79,7 +86,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="description">Description:</label>
 //             <textarea
 //               id="description"
@@ -88,7 +95,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="imageUrl">Image URL:</label>
 //             <input
 //               type="text"
@@ -98,7 +105,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="foodProcess">Process:</label>
 //             <textarea
 //               id="foodProcess"
@@ -107,7 +114,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <div>
+//           <div className="form-field">
 //             <label htmlFor="ingredients">Ingredients:</label>
 //             <textarea
 //               id="ingredients"
@@ -116,7 +123,7 @@
 //               onChange={handleInputChange}
 //             />
 //           </div>
-//           <button type="submit">Add on</button>
+//           <button type="submit" className="submit-button">Add on</button>
 //         </form>
 //       </div>
 //       <ToastContainer />
@@ -125,10 +132,6 @@
 // }
 
 // export default CreateFoodForm;
-
-
-
-
 
 
 
@@ -150,6 +153,7 @@ function CreateFoodForm() {
     foodProcess: [],
     ingredients: [],
   });
+  const [isFormComplete, setIsFormComplete] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -176,6 +180,17 @@ function CreateFoodForm() {
         [name]: value,
       }));
     }
+
+    // Check if all fields are filled
+    const formFields = ['name', 'type', 'description', 'imageUrl', 'foodProcess', 'ingredients'];
+    const isComplete = formFields.every((field) => {
+      const fieldValue = foodData[field];
+      if (typeof fieldValue === 'string') {
+        return fieldValue.trim() !== '';
+      }
+      return !!fieldValue; // Check if field value exists
+    });
+    setIsFormComplete(isComplete);
   };
 
   const createFood = async (foodData) => {
@@ -189,6 +204,19 @@ function CreateFoodForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if any field is empty
+    const isEmpty = Object.values(foodData).some((value) => {
+      if (typeof value === 'string') {
+        return value.trim() === '';
+      }
+      return !value; // Check if field value exists
+    });
+    if (isEmpty) {
+      alert('Please fill in all the fields.');
+      return;
+    }
+
     try {
       await createFood(foodData);
       toast.success('Food created successfully!');
@@ -201,9 +229,9 @@ function CreateFoodForm() {
   return (
     <div className="create-food-container">
       <div className="create-food-form">
-        <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Create Food</h2>
+        <h2 className="form-heading">Create Food</h2>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="form-field">
             <label htmlFor="name">Name:</label>
             <input
               type="text"
@@ -213,7 +241,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="form-field">
             <label htmlFor="type">Type:</label>
             <input
               type="text"
@@ -223,7 +251,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="form-field">
             <label htmlFor="description">Description:</label>
             <textarea
               id="description"
@@ -232,7 +260,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="form-field">
             <label htmlFor="imageUrl">Image URL:</label>
             <input
               type="text"
@@ -242,7 +270,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="form-field">
             <label htmlFor="foodProcess">Process:</label>
             <textarea
               id="foodProcess"
@@ -251,7 +279,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="form-field">
             <label htmlFor="ingredients">Ingredients:</label>
             <textarea
               id="ingredients"
@@ -260,7 +288,9 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit">Add on</button>
+          <button type="submit" className="submit-button" disabled={!isFormComplete}>
+            Add on
+          </button>
         </form>
       </div>
       <ToastContainer />

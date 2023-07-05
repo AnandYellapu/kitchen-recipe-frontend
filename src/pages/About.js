@@ -24,7 +24,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="about-page1">
+    <div className="about-container">
       <h1 className='tag'>About Us</h1>
       <p className='tag1'>Welcome to our website!</p>
 
