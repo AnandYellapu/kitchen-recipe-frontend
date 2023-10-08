@@ -39,7 +39,7 @@ const AboutPage = () => {
 
       <div className="contact-link1" onClick={openPhone}>
         <Phone className="icon" />
-        <span className="contact-text1">+91 8374161339</span>
+        <span className="contact-text1">+91-8374161339</span>
       </div>
 
       <h2 className='tag'>Follow Us</h2>

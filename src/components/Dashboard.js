@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://kitchen-recipe.onrender.com/api/users/dashboard');
+      const response = await axios.get('http://localhost:8000/api/users/dashboard');
       setRegistered(response.data.users);
     } catch (error) {
       console.error('Error fetching data:', error);

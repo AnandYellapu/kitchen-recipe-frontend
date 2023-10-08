@@ -12,11 +12,12 @@ import HostLayout from './components/HostLayout';
 import HostFoodDetail from './pages/Host/HostFoodDetail';
 import EditFood from './components/EditFood';
 import CreateFoodForm from './components/CreateFoodForm';
-import Login from './components/Login';
-import Register from './components/Register';
-import ForgotPassword from './components/ForgotPassword';
-import ResetPassword from './components/ResetPassword';
-// import { UserContextProvider } from './UserContext';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import ForgotPassword from './components/auth/ForgotPassword';
+import ResetPassword from './components/auth/ResetPassword';
+import Logout from './components/auth/Logout';
+
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
+          <Route path="/logout" element={<Logout />} />
 
           <Route path="foods" element={<Foods />} />
           <Route path="foods/:id" element={<FoodDetail />} />
@@ -40,7 +42,7 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route path="foods/:id" element={<HostFoodDetail />} />
             <Route path="foods/create" element={<CreateFoodForm />} />
-          </Route>
+        </Route>
 
         </Route>
       </Routes>
@@ -50,3 +52,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

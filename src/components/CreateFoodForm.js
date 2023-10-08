@@ -43,7 +43,7 @@ function CreateFoodForm() {
 
   const createFood = async (foodData) => {
     try {
-      await axios.post('https://kitchen-recipe.onrender.com/api/food', foodData);
+      await axios.post('http://localhost:8000/api/food', foodData);
     } catch (error) {
       console.error('Error creating food:', error);
       throw new Error('Failed to create food');
@@ -138,7 +138,7 @@ function CreateFoodForm() {
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit" className="submit-button">Add on</button>
+          <button type="submit" className="submit-button1">Add on</button>
         </form>
       </div>
       <ToastContainer />
