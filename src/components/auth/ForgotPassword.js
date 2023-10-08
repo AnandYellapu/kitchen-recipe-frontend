@@ -9,7 +9,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8000/api/users/forgot-password', { email });
+      await axios.post('https://kitchen-recipe.onrender.com/api/users/forgot-password', { email });
       alert('Password reset email sent successfully. Check your email.');
       // Optionally, redirect to the login page or handle the response accordingly
     } catch (error) {

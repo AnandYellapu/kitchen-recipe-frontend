@@ -15,7 +15,7 @@ const Register = () => {
 
     try {
       // Make a POST request to register a new user
-      await axios.post('http://localhost:8000/api/users/register', { username, email, password });
+      await axios.post('https://kitchen-recipe.onrender.com/api/users/register', { username, email, password });
 
       toast.success('Successfully registered!');
       navigate('/login');

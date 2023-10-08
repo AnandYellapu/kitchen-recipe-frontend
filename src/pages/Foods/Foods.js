@@ -28,7 +28,7 @@ const Foods = () => {
     };
 
     axios
-      .get('http://localhost:8000/api/food', { headers })
+      .get('https://kitchen-recipe.onrender.com/api/food', { headers })
       .then((response) => {
         const data = response.data;
         console.log(data); // Log the entire response data

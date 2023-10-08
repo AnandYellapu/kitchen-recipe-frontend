@@ -12,7 +12,7 @@ const FoodDetail = () => {
   useEffect(() => {
     const fetchFood = async (id) => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/food/${id}`);
+        const response = await axios.get(`https://kitchen-recipe.onrender.com/api/food/${id}`);
         console.log(response.data);
         setFood(response.data.data);
         setLoading(false);

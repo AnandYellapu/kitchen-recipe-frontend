@@ -38,7 +38,7 @@ const EditFood = () => {
 
   const getFoodById = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/food/${id}`);
+      const response = await axios.get(`https://kitchen-recipe.onrender.com/api/food/${id}`);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -48,7 +48,7 @@ const EditFood = () => {
 
   const updateFood = async (id, foodData) => {
   try {
-    const response = await axios.put(`http://localhost:8000/api/food/${id}`, foodData);
+    const response = await axios.put(`https://kitchen-recipe.onrender.com/api/food/${id}`, foodData);
     return response.data;
   } catch (error) {
     console.error(error);

@@ -43,7 +43,7 @@ function CreateFoodForm() {
 
   const createFood = async (foodData) => {
     try {
-      await axios.post('http://localhost:8000/api/food', foodData);
+      await axios.post('https://kitchen-recipe.onrender.com/api/food', foodData);
     } catch (error) {
       console.error('Error creating food:', error);
       throw new Error('Failed to create food');
