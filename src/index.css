@@ -1,708 +1,288 @@
-  * {
-    box-sizing: border-box;
+/* Header container */
+.header {
+    background-color: #1976d2; /* Change the background color as needed */
   }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #fff7ed;
-    font-family: "Inter", sans-serif;
-  }
-
-  a {
-    text-decoration: unset;
-    color: unset;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .header {
+  
+  /* Toolbar inside the header */
+  .toolbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 16px;
-    /* background-color: #f5f5f5; */
-    background-color: #fff7ed;
+    align-items: center;
   }
-
+  
+  /* Logo link */
   .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: black;
-    
+    color: inherit;
   }
-
-     .logo-link:hover {
-       text-decoration: underline;
-       transform: scale(0.9);
-       transition: transform 0.3s ease, color 0.3s ease;
-     }
-
+  
+  /* Logo icon */
   .logo-icon {
-    font-size: 24px;
-    margin-right: 8px;
+    font-size: 2rem;
   }
-
+  
+  /* Logo title */
   .logo-title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .nav {
-    display: flex;
-  }
-
-  .nav-link {
-    margin-right: 16px;
-    text-decoration: none;
-    color: black;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.3s ease, padding-bottom 0.3s ease;
-  }
-
-  .nav-link:hover,
-  .nav-link.active-link {
-    border-bottom: 2px solid black;
-    padding-bottom: 5px;
-  }
-
-  .footer {
-    /* background-color: #f5f5f5; */
-    background-color: black;
-    padding: 16px;
-    text-align: center;
-    color: white;
-    font-size: 14px;
-  }
-
-
-  .host-nav {
-    width: 80px;
-    padding: 16px;
-  }
-
-  .nav-link {
-    color: #333;
-    font-size: 16px;
-    margin-right: 16px;
-    text-decoration: none;
-  }
-
-  .active-link {
-    font-weight: bold;
-    text-decoration: underline;
-    color: #161616;
-  }
-
-
-  .site-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .site-header {
-    /* background-color: #f5f5f5; */
-    background-color: #161616;
-    padding: 16px;
-  }
-
-  .site-main {
-    flex: 1;
-    padding: 16px;
-  }
-
-  .site-footer {
-    background-color: #f5f5f5;
-    padding: 16px;
-  }
-
-  .home-container {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-      url("./assets/images/chicken.png") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 610px;
-    color: white;
-    padding: 75px 23px;
-    text-align: center;
-  }
-
-  .home-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-
-  .home-description {
-    font-size: 18px;
-    margin-bottom: 16px;
-  }
-
-  .home-link {
-    display: inline-block;
-    background-color: #FF9800;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-
-  .home-link:hover {
-    background-color: #F57C00;
-  }
-
-
-  .foods-container {
-    padding: 16px;
-  }
-
-  .foods-title {
-    text-align: center;
-    text-decoration: underline;
-  }
-
-  .foods-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .search-container {
-    display: flex;
-    align-items: center;
-    border-radius: 15px;
-  }
-
-  .search-input {
-    width: 200px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
+    font-size: 1.5rem;
     margin-left: 10px;
   }
-
-  .search-icon {
-    font-size: 24px;
-    color: #ccc;
-    margin-left: -30px;
+  
+ /* Navigation links */
+.nav {
+    margin-left: auto; /* Moves the navigation links to the right */
+    display: flex;
+    align-items: center;
   }
-
-  .food-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  .food-item {
-    border: 1px solid #ccc;
-    padding: 16px;
-    border-radius: 4px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .food-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .food-image {
-    width: 40%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  .food-name {
-    margin-top: 8px;
-  }
-
-  .food-type {
-    font-style: bold;
+  
+  /* Navigation link */
+  .nav-link {
+    margin-left: 20px; /* Adjust spacing between links if needed */
     text-decoration: none;
+    color: inherit;
+    font-size: 1rem;
   }
-
-  .food-type:hover {
-    color: orange;
-  }
-
-  .food-detail-container {
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .back-button {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #333;
-    text-decoration: none;
+  
+  /* Active navigation link */
+  .active-link {
     font-weight: bold;
-    transition: color 0.3s;
   }
-
-  .back-button:hover {
-    color: #555;
+  
+  /* Logout link */
+  .logout-link {
+    text-decoration: none;
+    color: inherit;
   }
+  
+  /* Logout icon */
+  .logout-icon {
+    font-size: 1.5rem;
+  }
+  
+  
+    /* Container holding the entire recipe details */
+.recipe-details-container {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
 
-  .back-button span {
+/* Card containing recipe information */
+.recipe-card {
+  background: linear-gradient(135deg, #f6f8fa 0%, #e7ebef 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Recipe title */
+.recipe-title {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #333;
+  text-align: center;
+}
+
+/* Recipe description */
+.recipe-description {
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Recipe ingredients section */
+.recipe-ingredients {
+  padding: 20px;
+  background-color: #f6f8fa;
+}
+
+/* Input field for number of people */
+.recipe-number-of-people {
+  margin-bottom: 20px;
+}
+
+/* Table cell containing ingredient item */
+.ingredient-item {
+  font-weight: bold;
+}
+
+/* Container holding recipe actions (Edit and Delete buttons) */
+.recipe-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Edit button */
+.edit-button,
+.delete-button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edit-button::before,
+.delete-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: -1;
+  border-radius: 30px;
+  transition: transform 0.4s;
+}
+
+.edit-button:hover::before,
+.delete-button:hover::before {
+  transform: scaleX(0);
+}
+
+.edit-button:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Confirmation dialog for recipe deletion */
+.delete-confirmation-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Confirmation dialog title */
+.delete-confirmation-dialog .dialog-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Confirmation dialog message */
+.delete-confirmation-dialog .dialog-message {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Confirmation dialog buttons */
+.delete-confirmation-dialog .dialog-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+/* Confirmation dialog button */
+.delete-confirmation-dialog .dialog-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Confirmation dialog confirm button */
+.delete-confirmation-dialog .confirm-button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Confirmation dialog cancel button */
+.delete-confirmation-dialog .cancel-button {
+  background-color: #ccc;
+  color: #333;
+}
+
+/* Confirmation dialog button hover effect */
+.delete-confirmation-dialog .dialog-button:hover {
+  filter: brightness(90%);
+}
+
+
+  
+  
+
+
+  .home-container {
     position: relative;
-    display: inline-block;
-    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the container height to 100% of the viewport height */
   }
-
-  .back-button:hover span {
-    transform: translateX(-5px);
-  }
-
-  .back-button::before {
-    content: "";
+  
+  .background-image {
     position: absolute;
-    top: 50%;
-    left: -10px;
-    width: 8px;
-    height: 8px;
-    background-color: #ff9f00;
-    transform: translateY(-50%) rotate(45deg);
-    transition: opacity 0.3s;
-    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/images/chicken.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
   }
-
-  .back-button:hover::before {
-    opacity: 1;
+  
+  .content {
+    z-index: 1; /* Make sure content appears above the background image */
+    padding: 10px; /* Adjust padding as needed */
+    color: black; /* Set text color to contrast with the background */
+    text-align: center; /* Center align the content */
   }
-
-  .food-detail {
-    text-align: center;
+  
+  .home-title {
+    font-size: 32px; /* Adjust font size as needed */
   }
-
-
-
-  .food-detail img {
-    width: 40%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 20px;
+  
+  .home-description {
+    font-size: 18px; /* Adjust font size as needed */
   }
-
-  .highlighted-heading {
-    color: #333;
-    text-decoration: underline;
-    margin-bottom: 10px;
-  }
-
-  .link-button {
+  
+  .home-link {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff9f00;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .link-button:hover {
-    background-color: #ffc837;
-  }
-
-  .create-food-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .create-food-form {
-    padding: 20px;
-    border-radius: 8px;
-  }
-
-  .form-heading {
-    text-align: center;
-    text-decoration: underline;
-  }
-
-  .form-field {
-    margin-bottom: 20px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .submit-button1 {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 3px;
-  }
-
-  .submit-button1:hover {
-    background-color: red;
-  }
-
-
-
-
-
-  .no-food {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f8f8f8;
-    color: #555;
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transform: scale(0.8);
-    opacity: 0;
-    animation: fadeInScale 0.5s ease-out forwards;
+    margin-top: 20px; /* Adjust margin as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #ff4500; /* Set background color for the link */
+    color: #fff; /* Set text color for the link */
+    text-decoration: none;
+    border-radius: 5px; /* Add rounded corners */
   }
   
-  @keyframes fadeInScale {
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #282c34;
-    color: #61dafb;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(97, 218, 251, 0.5);
-    opacity: 0.8;
-    animation: pulse 1s infinite alternate;
-  }
-  
-  @keyframes pulse {
-    to {
-      transform: scale(1);
-      box-shadow: 0 0 30px rgba(97, 218, 251, 0.8);
-      opacity: 1;
-    }
+  .home-link:hover {
+    background-color: #d13400; /* Change background color on hover */
   }
   
 
 
-  .no-preparation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f5f5f5;
-    color: #333;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(51, 51, 51, 0.2);
-    transform: rotate(-2deg);
-    opacity: 0.9;
-    animation: bounceAndFade 0.8s ease-in-out infinite alternate;
-  }
-  
-  @keyframes bounceAndFade {
-    to {
-      transform: rotate(2deg);
-      opacity: 1;
-    }
-  }
-
-
-  .no-ingredients {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #ffecb3;
-    color: #ff7043;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 112, 67, 0.3);
-    transform: skew(-10deg);
-    opacity: 0.9;
-    animation: tiltAndFade 0.8s ease-in-out infinite alternate;
-  }
-  
-  @keyframes tiltAndFade {
-    to {
-      transform: skew(10deg);
-      opacity: 1;
-    }
-  }
-  
-  /* Register */
-
-  /* Add your global styles here if needed */
-
-.register-container5 {
-  max-width: 700px;
-  margin: 0 auto;
-  margin-top: 70px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.register-form5 {
-  display: flex;
-  flex-direction: column;
-}
-
-.register-label5 {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.register-input5 {
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.register-button5 {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.register-button5:hover {
-  background-color: red !important;
-}
-
-.login-link5 {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.login-link5 a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.login-link5 a:hover {
-  text-decoration: underline;
-}
-
-/* Login */
-
-/* Add your global styles here if needed */
-
-.login-container4 {
-  max-width: 700px;
-  margin: 0 auto;
-  margin-top: 80px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form4 {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-label4 {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.login-input4 {
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-button4 {
-  padding: 10px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-button4:hover {
-  background-color: red;
-}
-
-.forgot-password-link4,
-.register-link4 {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.forgot-password-link4 a,
-.register-link4 a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgot-password-link4 a:hover,
-.register-link4 a:hover {
-  text-decoration: underline;
-}
-
-/* ForgotPassword */
-
-/* Add your global styles here if needed */
-
-.forgot-password-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.forgot-password-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.forgot-password-label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.forgot-password-input {
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.forgot-password-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.forgot-password-button:hover {
-  background-color: #0056b3;
-}
-
-/* ResetPassword */
-
-/* Add your global styles here if needed */
-
-.reset-password-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.reset-password-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.reset-password-label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.reset-password-input {
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.reset-password-button {
-  padding: 10px;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.reset-password-button:hover {
-  background-color: #c82333;
-}
-
-.reset-password-link {
-  margin-top: 10px;
-  text-align: center;
-  display: block;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.reset-password-link:hover {
-  text-decoration: underline;
+  .bookmark-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
