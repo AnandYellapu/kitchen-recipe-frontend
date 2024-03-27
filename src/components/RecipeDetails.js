@@ -5,6 +5,7 @@ import { Typography, Container, Grid, Card, CardMedia, CardContent, Table, Table
 import ConfirmationDialog from './ConfirmationDialog';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import jwt_decode from 'jwt-decode';
+import { RingLoader } from 'react-spinners';
 
 const RecipeDetails = () => {
     const { id } = useParams();
@@ -13,6 +14,7 @@ const RecipeDetails = () => {
     const [numberOfPeople, setNumberOfPeople] = useState(1);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [decodedToken, setDecodedToken] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchRecipeById = async () => {
@@ -39,8 +41,10 @@ const RecipeDetails = () => {
                 const decodedToken = jwt_decode(token);
                 // console.log('Decoded Token:', decodedToken);
                 setDecodedToken(decodedToken);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching recipe:', error);
+                setLoading(false);
             }
         };
     
@@ -104,81 +108,83 @@ const RecipeDetails = () => {
     return (
         <Container maxWidth="md">
             <Button startIcon={<ArrowBackIcon />} variant="outlined" onClick={handleGoBack} style={{ marginTop: '15px' }}>Back</Button> {/* Back button */}
-            {recipe ? (
-                <Grid container spacing={3} className="recipe-details-container">
-                    <Grid item xs={12}>
-                        <Card className="recipe-card">
-                            <CardMedia
-                                component="img"
-                                height="60%"
-                                image={recipe.imageUrl}
-                                alt={recipe.title}
-                                className="recipe-image"
-                            />
-                            <CardContent>
-                                <Typography variant="h5" component="h2" gutterBottom className="recipe-title">
-                                    {recipe.title}
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                {loading ? ( // Display loading spinner while fetching data
+                    <RingLoader color="#36d7b7" loading={loading} size={60} />
+                ) : (
+                    <React.Fragment>
+                        <Grid container spacing={3} className="recipe-details-container">
+                            <Grid item xs={12}>
+                                <Card className="recipe-card">
+                                    <CardMedia
+                                        component="img"
+                                        height="60%"
+                                        image={recipe.imageUrl}
+                                        alt={recipe.title}
+                                        className="recipe-image"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="h5" component="h2" gutterBottom className="recipe-title">
+                                            {recipe.title}
+                                        </Typography>
+                                        <Typography variant="body1" gutterBottom className="recipe-description">
+                                            {recipe.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={12} className="recipe-process">
+                               <Typography variant="h6" gutterBottom>
+                                   Process
+                               </Typography>
+                               <ol style={{ marginTop: '15px' }}>
+                                   {recipe.process.split('\n').map((step, index) => (
+                                       <li key={index} style={{ marginBottom: '15px' }}>{step}</li>
+                                   ))}
+                               </ol>
+                           </Grid>
+                            <Grid item xs={12} className="recipe-ingredients">
+                                <Typography variant="h6" gutterBottom>
+                                    Ingredients
                                 </Typography>
-                                <Typography variant="body1" gutterBottom className="recipe-description">
-                                    {recipe.description}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className="recipe-process">
-                       <Typography variant="h6" gutterBottom>
-                           Process
-                       </Typography>
-                       <ol style={{ marginTop: '15px' }}>
-                           {recipe.process.split('\n').map((step, index) => (
-                               <li key={index} style={{ marginBottom: '15px' }}>{step}</li>
-                           ))}
-                       </ol>
-                   </Grid>
-                    <Grid item xs={12} className="recipe-ingredients">
-                        <Typography variant="h6" gutterBottom>
-                            Ingredients
-                        </Typography>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="Number of Persons"
-                                type="number"
-                                value={numberOfPeople}
-                                onChange={handleNumberOfPeopleChange}
-                                fullWidth
-                                className="recipe-number-of-people"
-                            />
+                                <Grid item xs={12}>
+                                    <TextField
+                                        label="Number of Persons"
+                                        type="number"
+                                        value={numberOfPeople}
+                                        onChange={handleNumberOfPeopleChange}
+                                        fullWidth
+                                        className="recipe-number-of-people"
+                                    />
+                                </Grid>
+                                <TableContainer>
+                                    <Table>
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell className="ingredient-item">Item</TableCell>
+                                                <TableCell className="ingredient-quantity">Quantity</TableCell>
+                                                <TableCell className="ingredient-units">Units</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {recipe.ingredients.map((ingredient, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>{ingredient.item}</TableCell>
+                                                    <TableCell>{calculateIngredientQuantity(ingredient.quantity)}</TableCell>
+                                                    <TableCell>{ingredient.units}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </Grid>
+                            <Grid item xs={12} className="recipe-actions">
+                                {renderButtons()} 
+                            </Grid>
                         </Grid>
-                        <TableContainer>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell className="ingredient-item">Item</TableCell>
-                                        <TableCell className="ingredient-quantity">Quantity</TableCell>
-                                        <TableCell className="ingredient-units">Units</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {recipe.ingredients.map((ingredient, index) => (
-                                        <TableRow key={index}>
-                                            <TableCell>{ingredient.item}</TableCell>
-                                            <TableCell>{calculateIngredientQuantity(ingredient.quantity)}</TableCell>
-                                            <TableCell>{ingredient.units}</TableCell>
-                                        </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Grid>
-                    <Grid item xs={12} className="recipe-actions">
-                        {renderButtons()} {/* Render Edit and Delete buttons based on user role */}
-                    </Grid>
-                </Grid>
-            ) : (
-                <Typography variant="h6" align="center">
-                    Loading...
-                </Typography>
-            )}
+                    </React.Fragment>
+                )}
+            </div>
             <ConfirmationDialog
                 open={isDeleteDialogOpen}
                 onClose={handleDeleteDialogClose}
@@ -190,7 +196,7 @@ const RecipeDetails = () => {
                 className="delete-confirmation-dialog"
             />
         </Container>
-    );
+    );    
 };
 
 export default RecipeDetails;

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
+import About from './pages/About';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import ForgotPassword from './auth/ForgotPassword';
@@ -37,6 +38,11 @@ function App() {
           <Header />
           <EditRecipe />
         </>} />
+        <Route path='/about' element={<>
+          <Header />
+          <About />
+        </>} />
+
       </Routes>
     </BrowserRouter>
   );
