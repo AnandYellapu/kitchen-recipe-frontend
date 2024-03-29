@@ -36,18 +36,35 @@ const EditRecipe = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+   
     const handleProcessKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-            setFormData({ ...formData, process: formData.process + '\n' });
+            const { selectionStart, selectionEnd, value } = e.target;
+            const processedValue =
+                value.substring(0, selectionStart) +
+                '\n' +
+                value.substring(selectionEnd, value.length);
+            setFormData({ ...formData, process: processedValue });
+            // Set the selection to after the inserted newline
+            e.target.selectionStart = selectionEnd + 1;
+            e.target.selectionEnd = selectionEnd + 1;
         }
     };
-
+    
+    
     const handleIngredientChange = (index, name, value) => {
         const updatedIngredients = [...formData.ingredients];
-        updatedIngredients[index][name] = value.trim();
+        // Ensure the value is not trimmed if it's the item or units
+        if (name === 'item' || name === 'units') {
+            updatedIngredients[index][name] = value;
+        } else {
+            // For quantity, trim the value
+            updatedIngredients[index][name] = value.trim();
+        }
         setFormData({ ...formData, ingredients: updatedIngredients });
     };
+    
 
     const handleAddIngredient = () => {
         setFormData({
@@ -55,6 +72,9 @@ const EditRecipe = () => {
             ingredients: [...formData.ingredients, { item: '', quantity: '', units: '' }],
         });
     };
+
+
+    
 
     const handleRemoveIngredient = (index) => {
         const updatedIngredients = [...formData.ingredients];
@@ -138,7 +158,7 @@ const EditRecipe = () => {
                             onChange={handleChange}
                             onKeyDown={handleProcessKeyDown}
                             multiline
-                            margin="normal"
+                            
                             fullWidth
                             required
                         />

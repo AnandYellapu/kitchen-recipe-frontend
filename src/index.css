@@ -286,3 +286,29 @@
     bottom: 10px;
     left: 10px;
 }
+
+
+/* recipeList */
+
+/* Define the keyframes for the flipping animation */
+@keyframes flipUpDown {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* Apply the animation to the recipe card */
+.recipe-card-card {
+  animation: flipUpDown 0.5s ease-in-out;
+}
+
+
+.recipe-card-card:hover {
+  transform: scale(1.05);
+}

@@ -203,7 +203,7 @@ const RecipeList = () => {
             <Grid container spacing={4} marginTop={2}>
             {currentRecipes.map((recipe, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
-                    <Card>
+                    <Card className='recipe-card-card'>
                         <Link to={`/get/${recipe._id}`} style={{ textDecoration: 'none' }}>
                             <LazyLoadImage
                                 alt={recipe.title}
