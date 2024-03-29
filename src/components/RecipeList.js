@@ -8,7 +8,8 @@ import SortIcon from '@mui/icons-material/Sort';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { BookmarkBorder, Bookmark } from '@mui/icons-material'; 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { RingLoader } from 'react-spinners';
+// import { RingLoader } from 'react-spinners';
+import RubixCubeLoader from './RubixCubeLoader';
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -77,7 +78,7 @@ const RecipeList = () => {
         return (
             <Container maxWidth="md">
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                    <RingLoader color="#36d7b7" loading={loading} size={60} />
+                    <RubixCubeLoader color="#36d7b7" loading={loading} size={60} />
                 </div>
             </Container>
         );

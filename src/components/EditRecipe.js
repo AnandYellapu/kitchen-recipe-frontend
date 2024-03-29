@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, TextField, Typography, Container, Grid } from '@mui/material';
-import {RingLoader} from 'react-spinners';
+// import {RingLoader} from 'react-spinners';
+import RubixCubeLoader from './RubixCubeLoader'; 
 
 const EditRecipe = () => {
     const { id } = useParams();
@@ -96,7 +97,7 @@ const EditRecipe = () => {
         if (!recipe) {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                <RingLoader color="#36d7b7" loading={!recipe} size={60} />
+                <RubixCubeLoader color="#36d7b7" loading={!recipe} size={60} />
             </div>
         );
     }

@@ -309,6 +309,104 @@
 }
 
 
+/* Apply the hover effect */
 .recipe-card-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+/* Apply the hover effect */
+.recipe-card-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.recipe-card-card:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(2deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.recipe-card-card:hover::before {
+  opacity: 0.4;
+}
+
+
+
+
+/* RubixCubeLoader.css */
+.rubix-cube-container {
+  perspective: 100px;
+  width: 200px; /* Adjust this value according to your needs */
+  height: 200px; /* Adjust this value according to your needs */
+  margin: 0 auto;
+}
+
+.rubix-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 5s infinite linear;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 1px solid #000; /* Adjust border as needed */
+}
+
+.front {
+  transform: translateZ(100px);
+  background-color: #fd5f00; /* Orange */
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(100px);
+  background-color: #fcbf49; /* Light Yellow */
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+  background-color: #42d9c8; /* Light Aqua */
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+  background-color: #8d99ae; /* Lavender Grey */
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+  background-color: #6a0572; /* Purple */
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+  background-color: #ffd166; /* Yellow */
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
 }

@@ -5,7 +5,8 @@ import { Typography, Container, Grid, Card, CardMedia, CardContent, Table, Table
 import ConfirmationDialog from './ConfirmationDialog';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import jwt_decode from 'jwt-decode';
-import { RingLoader } from 'react-spinners';
+// import { RingLoader } from 'react-spinners';
+import RubixCubeLoader from './RubixCubeLoader';
 
 const RecipeDetails = () => {
     const { id } = useParams();
@@ -110,7 +111,7 @@ const RecipeDetails = () => {
             <Button startIcon={<ArrowBackIcon />} variant="outlined" onClick={handleGoBack} style={{ marginTop: '15px' }}>Back</Button> {/* Back button */}
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
                 {loading ? ( // Display loading spinner while fetching data
-                    <RingLoader color="#36d7b7" loading={loading} size={60} />
+                    <RubixCubeLoader color="#36d7b7" loading={loading} size={60} />
                 ) : (
                     <React.Fragment>
                         <Grid container spacing={3} className="recipe-details-container">
